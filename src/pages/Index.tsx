@@ -12,7 +12,7 @@ const Index = () => {
   return (
     <div className="min-h-screen overflow-hidden">
       <Navbar />
-      <main>
+      <main className="bg-lemon-50">
         <Hero />
         <EmailInterface />
         <Features />
