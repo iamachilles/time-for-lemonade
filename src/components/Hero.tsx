@@ -25,12 +25,12 @@ const Hero = () => {
           </div>
           
           <div className="lg:w-1/2 relative">
-            {/* Main hero image positioned to overflow on mobile and desktop */}
-            <div className="relative w-full h-auto overflow-visible">
+            {/* Hero image positioned to overflow slightly from the page */}
+            <div className="relative w-full h-auto">
               <img 
                 src="/lovable-uploads/2043e556-41e3-48ec-8bfa-6651d506a706.png" 
                 alt="Lemons playing with mailbox" 
-                className="w-auto h-auto max-w-none lg:max-w-[140%] absolute -right-16 lg:-right-32 top-0"
+                className="w-full h-auto object-contain md:object-none md:scale-110 lg:scale-125 transform translate-x-4 lg:translate-x-12 xl:translate-x-16"
               />
             </div>
           </div>
