@@ -6,8 +6,8 @@ const Hero = () => {
     <section className="pt-0 md:pt-8 pb-16 overflow-hidden relative">
       <div className="container px-4 sm:px-6 lg:px-8 mx-auto">
         <div className="flex flex-col items-center justify-center text-center relative">
-          {/* Left side image - made larger and positioned lower */}
-          <div className="absolute -left-20 md:-left-32 top-[60%] -translate-y-1/2 w-2/5 max-w-[300px] hidden md:block">
+          {/* Left side image - made larger and positioned much lower (about 1/3 from top) */}
+          <div className="absolute -left-20 md:-left-32 top-1/3 w-2/5 max-w-[300px] hidden md:block">
             <img 
               src="/lovable-uploads/84bddbc7-cf5d-4ae5-bd57-6bff30321134.png" 
               alt="Lemon character on envelope" 
