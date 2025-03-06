@@ -113,15 +113,6 @@ const EmailInterface = () => {
             className="w-full h-auto"
           />
         </div>
-        
-        {/* Decorative elements */}
-        <div className="absolute bottom-0 left-1/4 -mb-8">
-          <img 
-            src="/lovable-uploads/b612ef9b-8745-45de-8507-4d47e5825102.png" 
-            alt="Decorative leaf" 
-            className="w-32 h-auto opacity-90 transform -rotate-15"
-          />
-        </div>
       </div>
     </section>
   );
