@@ -1,6 +1,5 @@
 
-import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { Sparkle } from "lucide-react";
 
 const Hero = () => {
   return (
@@ -23,11 +22,11 @@ const Hero = () => {
                 href="https://app.zest.email/" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="bg-yellow-400 hover:bg-yellow-500 text-black font-medium py-3 px-6 rounded-full shadow-md transition-all duration-300 flex items-center gap-2 text-lg inline-flex justify-center"
+                className="bg-gradient-to-r from-purple-500 to-purple-600 text-white font-medium py-4 px-8 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 flex items-center gap-2 text-lg inline-flex justify-center"
               >
-                Try Free <ArrowRight size={18} />
+                <Sparkle className="h-5 w-5" />
+                Try Free
               </a>
-              <Button variant="outline" className="text-lg">Learn More</Button>
             </div>
           </div>
           
