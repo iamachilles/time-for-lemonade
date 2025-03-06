@@ -17,14 +17,12 @@ const Footer = () => {
           </div>
 
           <div className="flex flex-wrap items-center justify-center gap-6 md:gap-8 mt-4 md:mt-0 w-full md:w-1/3">
-            <a
-              href="https://www.zest.email/changelog"
+            <Link
+              to="/changelog"
               className="text-gray-600 hover:text-black transition-colors"
-              target="_blank"
-              rel="noopener noreferrer"
             >
               Changelog
-            </a>
+            </Link>
             <Link
               to="/terms-of-service"
               className="text-gray-600 hover:text-black transition-colors"

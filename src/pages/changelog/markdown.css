@@ -1,0 +1,134 @@
+#markdown-container {
+  /* Headings */
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    line-height: 1.5;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  h1 {
+    font-size: 2.25rem; /* 36px */
+  }
+
+  h2 {
+    font-size: 1.875rem; /* 30px */
+  }
+
+  h3 {
+    font-size: 1.1rem; /* 24px */
+  }
+
+  h4 {
+    font-size: 1rem; /* 20px */
+  }
+
+  /* Paragraphs and spacing */
+  p {
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+
+  /* Lists */
+  ul, ol {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+    list-style: none;
+  }
+
+  li {
+    margin-bottom: 0.5rem;
+    color: hsl(var(--foreground));
+    position: relative;
+  }
+
+  li::before {
+    content: "•";
+    position: absolute;
+    left: -1.2rem;
+    color: hsl(var(--muted-foreground));
+  }
+
+  /* Links */
+  a {
+    color: hsl(var(--primary));
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  a:hover {
+    color: hsl(var(--primary-foreground));
+    text-decoration: underline;
+  }
+
+  /* Code blocks */
+  pre {
+    background: hsl(var(--secondary));
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin: 1rem 0;
+    overflow-x: auto;
+  }
+
+  code {
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    background: hsl(var(--secondary));
+    padding: 0.2rem 0.4rem;
+    border-radius: 0.25rem;
+  }
+
+  /* Blockquotes */
+  blockquote {
+    border-left: 4px solid hsl(var(--border));
+    margin: 1.5rem 0;
+    padding: 0.5rem 1rem;
+    color: hsl(var(--muted-foreground));
+  }
+
+  /* Tables */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+  }
+
+  th, td {
+    border: 1px solid hsl(var(--border));
+    padding: 0.75rem;
+    text-align: left;
+  }
+
+  th {
+    background: hsl(var(--secondary));
+    font-weight: 600;
+  }
+
+  /* Horizontal rule */
+  hr {
+    border: none;
+    border-top: 1px solid hsl(var(--border));
+    margin: 2rem 0;
+  }
+
+  /* Images */
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+  }
+
+  /* Details and Summary */
+  details {
+    margin: 1rem 0;
+  }
+
+  summary {
+    cursor: pointer;
+    color: hsl(var(--foreground));
+  }
+
+  summary::marker {
+    color: hsl(var(--muted-foreground));
+  }
+}
