@@ -46,8 +46,6 @@ const Hero = () => {
             <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold leading-tight">
               Make <span className="text-green-500">email</span> smooth
               <br />
-              again
-              <br />
               <span className="text-purple-500">with Zest</span>
             </h1>
             <p className="text-lg md:text-xl text-gray-600 max-w-lg mx-auto">
