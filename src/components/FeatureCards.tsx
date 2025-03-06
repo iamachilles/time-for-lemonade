@@ -7,10 +7,12 @@ interface FeatureCardProps {
 }
 
 const FeatureCard = ({ title, description, imageSrc, bgColor }: FeatureCardProps) => (
-  <div className={`rounded-xl overflow-hidden shadow-lg ${bgColor} text-white p-6`}>
+  <div className={`rounded-xl overflow-hidden shadow-lg ${bgColor} text-white p-6 h-full flex flex-col`}>
     <h3 className="text-xl font-bold mb-2">{title}</h3>
     <p className="text-white/90 mb-4 text-sm">{description}</p>
-    <img src={imageSrc} alt={title} className="w-full h-auto" />
+    <div className="mt-auto flex justify-center items-center">
+      <img src={imageSrc} alt={title} className="w-full max-h-48 object-contain" />
+    </div>
   </div>
 );
 
@@ -69,7 +71,7 @@ const FeatureCards = () => {
   return (
     <section className="py-16">
       <div className="container px-4 sm:px-6 lg:px-8 mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {features.map((feature, index) => (
             <div key={index} className="animate-slide-up" style={{ animationDelay: `${index * 0.1}s` }}>
               <FeatureCard {...feature} />
