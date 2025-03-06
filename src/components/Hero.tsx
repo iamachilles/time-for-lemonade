@@ -18,6 +18,19 @@ const Hero = () => {
             />
           </div>
           
+          {/* Right side image */}
+          <div className="absolute right-0 md:right-10 top-1/2 -translate-y-1/2 w-1/3 max-w-[260px] hidden md:block">
+            <img 
+              src="/lovable-uploads/deb8f9a1-baea-4192-8f14-59fb0f7d5835.png" 
+              alt="Lemon characters playing with email" 
+              className="w-full h-auto animate-float"
+              style={{ 
+                animationDuration: "10s",
+                transform: "rotate(6deg)"
+              }}
+            />
+          </div>
+          
           {/* Centered content */}
           <div className="max-w-3xl mx-auto space-y-6 z-10 py-12">
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
