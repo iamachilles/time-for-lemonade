@@ -3,44 +3,17 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { useEffect, useState } from "react";
 
-// Small floating element component
-const FloatingElement = ({ 
-  src, 
-  alt, 
-  className, 
-  style 
-}: { 
-  src: string; 
-  alt: string; 
-  className?: string;
-  style?: React.CSSProperties;
-}) => {
+const CTASection = () => {
   const [isVisible, setIsVisible] = useState(false);
   
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsVisible(true);
-    }, Math.random() * 500);
+    }, 300);
     
     return () => clearTimeout(timer);
   }, []);
-  
-  return (
-    <div 
-      className={`absolute transition-opacity duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'} ${className || ''}`} 
-      style={style}
-    >
-      <img 
-        src={src} 
-        alt={alt} 
-        className="w-auto h-auto animate-float"
-        style={{ animationDuration: `${8 + Math.random() * 4}s` }}
-      />
-    </div>
-  );
-};
 
-const CTASection = () => {
   return (
     <section className="py-20">
       <div className="container px-4 sm:px-6 lg:px-8 mx-auto">
@@ -53,15 +26,20 @@ const CTASection = () => {
             <div className="absolute bottom-0 left-0 w-64 h-64 bg-lime-200 rounded-full blur-3xl -ml-20 -mb-20 opacity-70"></div>
             
             <div className="relative text-center max-w-3xl mx-auto">
-              {/* Main superhero lemon illustration at the top */}
-              <FloatingElement 
-                src="/lovable-uploads/9bbe414c-63c7-4d3e-9f5e-4de2bc50a0ac.png" 
-                alt="Flying lemon superhero" 
-                className="w-32 h-auto mx-auto"
-                style={{ top: '-80px', left: '50%', transform: 'translateX(-50%)' }}
-              />
+              {/* Floating relaxing lemon image */}
+              <div className={`transition-all duration-1000 ease-in-out ${
+                isVisible 
+                  ? 'opacity-100 translate-y-0' 
+                  : 'opacity-0 translate-y-8'
+              }`}>
+                <img 
+                  src="/lovable-uploads/990ddb2a-ccfb-4384-bd18-51abe30e54c4.png" 
+                  alt="Relaxing lemon in tube" 
+                  className="w-48 h-auto mx-auto mb-6 animate-float"
+                />
+              </div>
               
-              <h2 className="text-3xl md:text-5xl font-bold mb-6 leading-tight animate-slide-up mt-12">
+              <h2 className="text-3xl md:text-5xl font-bold mb-6 leading-tight animate-slide-up">
                 It's time for <span className="text-lime-600">lemonade</span>, not email stress
               </h2>
               <p className="text-xl text-gray-700 mb-8 animate-slide-up" style={{ animationDelay: "0.1s" }}>
@@ -76,21 +54,6 @@ const CTASection = () => {
               <p className="text-gray-500 mt-6 animate-slide-up" style={{ animationDelay: "0.3s" }}>
                 No credit card required. Cancel anytime.
               </p>
-              
-              {/* Additional floating elements */}
-              <FloatingElement 
-                src="/lovable-uploads/c663818e-7422-42ba-b924-1fe838368f51.png" 
-                alt="Lemon character" 
-                className="w-20"
-                style={{ bottom: '-30px', right: '10%' }}
-              />
-              
-              <FloatingElement 
-                src="/lovable-uploads/d0928468-1adc-4b4f-a8ac-e11f7bb91a21.png" 
-                alt="Lemon with mail" 
-                className="w-24"
-                style={{ bottom: '-40px', left: '10%' }}
-              />
             </div>
           </div>
         </div>
