@@ -18,7 +18,7 @@ const Divider = () => {
         <img 
           src="/lovable-uploads/fef12092-35c0-45b7-b2e7-a7c95a934f58.png" 
           alt="Decorative lemon characters and paper divider" 
-          className="w-[120%] max-w-none h-auto mx-auto animate-float relative left-1/2 -translate-x-1/2"
+          className="w-[120%] max-w-none h-auto mx-auto absolute left-1/2 -translate-x-1/2"
         />
       </div>
     </div>
