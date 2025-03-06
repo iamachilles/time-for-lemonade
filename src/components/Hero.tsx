@@ -27,12 +27,17 @@ const Hero = () => {
           </div>
           
           <div className="lg:w-1/2 relative">
-            <img 
-              src="/lovable-uploads/deb8f9a1-baea-4192-8f14-59fb0f7d5835.png" 
-              alt="Lemon characters playing with email" 
-              className="w-full h-auto max-w-2xl mx-auto animate-float"
-              style={{ animationDuration: "10s" }}
-            />
+            <div className="relative w-full max-w-2xl mx-auto lg:translate-x-12">
+              <img 
+                src="/lovable-uploads/deb8f9a1-baea-4192-8f14-59fb0f7d5835.png" 
+                alt="Lemon characters playing with email" 
+                className="w-full h-auto animate-float"
+                style={{ 
+                  animationDuration: "10s",
+                  transform: "rotate(6deg)"
+                }}
+              />
+            </div>
           </div>
         </div>
       </div>
