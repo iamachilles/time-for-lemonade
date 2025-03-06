@@ -8,10 +8,14 @@ const Navbar = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           <div className="flex items-center gap-2">
-            <span className="text-lime-600 text-2xl">🍋</span>
+            <img 
+              src="/lovable-uploads/0fe28731-5f51-4b87-9434-56fabbadd85a.png" 
+              alt="Zest Logo" 
+              className="w-8 h-auto"
+            />
             <Link to="/" className="font-display text-xl font-bold">
-              <span>Time For </span>
-              <span className="text-lime-600">Lemonade</span>
+              <span className="text-lime-600">Zest</span>
+              <span> Mail</span>
             </Link>
           </div>
           

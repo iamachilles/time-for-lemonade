@@ -1,6 +1,6 @@
 
 import { Link } from "react-router-dom";
-import { Mail, Twitter, Instagram, Youtube, Linkedin } from "lucide-react";
+import { Mail, Twitter, Instagram, Linkedin } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -9,8 +9,15 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           <div className="space-y-4">
             <div className="flex items-center gap-2">
-              <span className="text-lime-600 text-2xl">🍋</span>
-              <span className="font-display text-xl font-bold">Time For Lemonade</span>
+              <img 
+                src="/lovable-uploads/0fe28731-5f51-4b87-9434-56fabbadd85a.png" 
+                alt="Zest Logo" 
+                className="w-8 h-auto"
+              />
+              <span className="font-display text-xl font-bold">
+                <span className="text-lime-600">Zest</span>
+                <span> Mail</span>
+              </span>
             </div>
             <p className="text-gray-600">
               The AI email client that gives you back your time.
@@ -24,9 +31,6 @@ const Footer = () => {
               </a>
               <a href="#" className="text-gray-400 hover:text-gray-700 transition-colors">
                 <Linkedin size={20} />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-gray-700 transition-colors">
-                <Youtube size={20} />
               </a>
             </div>
           </div>
@@ -67,12 +71,12 @@ const Footer = () => {
         
         <div className="mt-16 pt-8 border-t border-gray-200 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-gray-500 text-sm">
-            © {new Date().getFullYear()} Time For Lemonade. All rights reserved.
+            © {new Date().getFullYear()} Zest Mail. All rights reserved.
           </p>
           <div className="flex items-center gap-2">
             <Mail size={16} className="text-gray-400" />
-            <a href="mailto:hello@timeforlemonade.com" className="text-gray-600 hover:text-black transition-colors">
-              hello@timeforlemonade.com
+            <a href="mailto:hello@zestmail.com" className="text-gray-600 hover:text-black transition-colors">
+              hello@zestmail.com
             </a>
           </div>
         </div>

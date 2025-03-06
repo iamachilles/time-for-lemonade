@@ -14,6 +14,14 @@ const CTASection = () => {
             <div className="absolute bottom-0 left-0 w-64 h-64 bg-lime-200 rounded-full blur-3xl -ml-20 -mb-20 opacity-70"></div>
             
             <div className="relative text-center max-w-3xl mx-auto">
+              <div className="mb-8 flex justify-center">
+                <img 
+                  src="/lovable-uploads/d2dd5e4e-6fc5-4eae-b0fb-7431063f6f18.png" 
+                  alt="Relaxing lemon" 
+                  className="w-32 h-auto animate-float"
+                />
+              </div>
+              
               <h2 className="text-3xl md:text-5xl font-bold mb-6 leading-tight animate-slide-up">
                 It's time for <span className="text-lime-600">lemonade</span>, not email stress
               </h2>
@@ -29,27 +37,6 @@ const CTASection = () => {
               <p className="text-gray-500 mt-6 animate-slide-up" style={{ animationDelay: "0.3s" }}>
                 No credit card required. Cancel anytime.
               </p>
-              
-              <div className="mt-12 flex flex-wrap justify-center gap-8 animate-slide-up" style={{ animationDelay: "0.4s" }}>
-                <div className="flex items-center gap-2">
-                  <div className="w-10 h-10 rounded-full bg-lime-100 flex items-center justify-center">
-                    <span className="text-lime-600 text-lg">✓</span>
-                  </div>
-                  <span className="text-gray-700">14-day free trial</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-10 h-10 rounded-full bg-lime-100 flex items-center justify-center">
-                    <span className="text-lime-600 text-lg">✓</span>
-                  </div>
-                  <span className="text-gray-700">No credit card</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-10 h-10 rounded-full bg-lime-100 flex items-center justify-center">
-                    <span className="text-lime-600 text-lg">✓</span>
-                  </div>
-                  <span className="text-gray-700">Easy setup</span>
-                </div>
-              </div>
             </div>
           </div>
         </div>
