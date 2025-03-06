@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 
 // Feature card component
@@ -105,10 +106,10 @@ const EmailInterface = () => {
           position="bottom-[15%] right-0 translate-x-1/3 lg:translate-x-1/4"
         />
         
-        {/* Email interface screenshot */}
+        {/* Email interface screenshot - updated with new image */}
         <div className="relative max-w-5xl mx-auto rounded-lg overflow-hidden shadow-2xl">
           <img 
-            src="/lovable-uploads/d98d3613-2289-47da-a8f2-00e9c8debe72.png" 
+            src="/lovable-uploads/214b2fbf-805d-4683-ba89-a22bcb850cf5.png" 
             alt="Email interface screenshot" 
             className="w-full h-auto"
           />
