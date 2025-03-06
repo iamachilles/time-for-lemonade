@@ -3,12 +3,12 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { useEffect, useState } from "react";
 
-// Small floating illustration component
+// Small floating element component
 const FloatingElement = ({ 
   src, 
   alt, 
-  className, 
-  style 
+  className = "", 
+  style = {} 
 }: { 
   src: string; 
   alt: string; 
@@ -27,13 +27,14 @@ const FloatingElement = ({
   
   return (
     <div 
-      className={`absolute transition-opacity duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'} ${className || ''}`} 
+      className={`absolute transition-opacity duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'} ${className}`} 
       style={style}
     >
       <img 
         src={src} 
         alt={alt} 
-        className="w-auto h-auto"
+        className="w-auto h-auto max-h-20 animate-float"
+        style={{ animationDuration: `${8 + Math.random() * 4}s` }}
       />
     </div>
   );
@@ -62,47 +63,47 @@ const Hero = () => {
           </div>
           
           <div className="lg:w-1/2 relative">
+            {/* Main hero image */}
             <img 
               src="/lovable-uploads/deb8f9a1-baea-4192-8f14-59fb0f7d5835.png" 
               alt="Lemon characters playing with email" 
-              className="w-full h-auto max-w-xl mx-auto animate-float"
-              style={{ animationDuration: "10s" }}
+              className="w-full h-auto max-w-xl mx-auto z-20 relative"
             />
             
-            {/* Adding floating elements around the main image */}
+            {/* Adding well-positioned floating elements around the main image */}
             <FloatingElement 
               src="/lovable-uploads/0fe28731-5f51-4b87-9434-56fabbadd85a.png"
               alt="Lemon with mail"
-              className="w-24 animate-float"
-              style={{ top: '-15%', right: '10%', animationDuration: "8s", animationDelay: "0.2s" }}
+              className="w-16 z-30 hidden lg:block"
+              style={{ top: '-5%', right: '15%' }}
+            />
+            
+            <FloatingElement 
+              src="/lovable-uploads/4ffe008a-68ed-4b74-9eed-ab75a2d6f841.png"
+              alt="Super lemon"
+              className="w-16 z-30 hidden lg:block"
+              style={{ top: '10%', right: '5%' }}
             />
             
             <FloatingElement 
               src="/lovable-uploads/c663818e-7422-42ba-b924-1fe838368f51.png"
               alt="Lemon character"
-              className="w-20 animate-float"
-              style={{ bottom: '10%', left: '-5%', animationDuration: "9s", animationDelay: "0.5s" }}
-            />
-            
-            <FloatingElement 
-              src="/lovable-uploads/61d3f307-5955-41d1-a889-25b98e7957c2.png"
-              alt="Lemon superhero"
-              className="w-28 animate-float"
-              style={{ top: '20%', left: '-15%', animationDuration: "12s", animationDelay: "1s" }}
+              className="w-14 z-30 hidden lg:block"
+              style={{ bottom: '15%', left: '0%' }}
             />
           </div>
         </div>
       </div>
       
-      {/* Decorative elements */}
-      <div className="absolute -top-20 right-10 animate-float opacity-30">
+      {/* Background decorative elements */}
+      <div className="absolute -top-20 right-10 animate-float opacity-30 hidden lg:block">
         <img 
           src="/lovable-uploads/d8505e94-e8fd-4d33-8e1c-e41ebf065b35.png" 
           alt="Decorative cloud" 
           className="w-32 h-auto"
         />
       </div>
-      <div className="absolute top-40 left-10 animate-float opacity-30" style={{animationDelay: "1s"}}>
+      <div className="absolute top-40 left-10 animate-float opacity-30 hidden lg:block" style={{animationDelay: "1s"}}>
         <img 
           src="/lovable-uploads/d8505e94-e8fd-4d33-8e1c-e41ebf065b35.png" 
           alt="Decorative cloud" 

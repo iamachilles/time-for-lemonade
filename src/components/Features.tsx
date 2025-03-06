@@ -2,17 +2,37 @@
 import { Check } from "lucide-react";
 import { useEffect, useState } from "react";
 
-// Small floating animation component
+// Floating card component
+const FeatureCard = ({ 
+  title, 
+  description, 
+  color = "bg-purple-200" 
+}: { 
+  title: string; 
+  description: string;
+  color?: string;
+}) => {
+  return (
+    <div className={`${color} px-5 py-3 rounded-xl shadow-md max-w-[200px] transform rotate-${Math.floor(Math.random() * 6) - 3}`}>
+      <p className="text-gray-800 font-bold text-sm">{title}</p>
+      <p className="text-xs text-gray-700">{description}</p>
+    </div>
+  );
+};
+
+// Small floating illustration component
 const FloatingElement = ({ 
   src, 
   alt, 
-  className, 
-  style 
+  className = "", 
+  style = {},
+  card = null
 }: { 
   src: string; 
   alt: string; 
   className?: string;
   style?: React.CSSProperties;
+  card?: {title: string, description: string, color?: string} | null;
 }) => {
   const [isVisible, setIsVisible] = useState(false);
   
@@ -26,15 +46,24 @@ const FloatingElement = ({
   
   return (
     <div 
-      className={`absolute transition-opacity duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'} ${className || ''}`} 
-      style={style}
+      className={`absolute transition-opacity duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'} ${className}`} 
+      style={{ 
+        animationDuration: `${8 + Math.random() * 4}s`,
+        ...style 
+      }}
     >
       <img 
         src={src} 
         alt={alt} 
-        className="w-auto h-auto animate-float"
+        className="w-auto h-auto max-h-16 animate-float"
         style={{ animationDuration: `${8 + Math.random() * 4}s` }}
       />
+      
+      {card && (
+        <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2">
+          <FeatureCard {...card} />
+        </div>
+      )}
     </div>
   );
 };
@@ -52,40 +81,40 @@ const Features = () => {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-b from-white/0 to-purple-50/30 overflow-hidden">
+    <section className="py-20 bg-gradient-to-b from-white/0 to-purple-50/30 overflow-hidden" id="features">
       <div className="container px-4 sm:px-6 lg:px-8 mx-auto">
         <div className="flex flex-col lg:flex-row items-center gap-12">
           <div className="lg:w-1/2 relative">
-            {/* Main illustration */}
-            <div className="animate-float" style={{ animationDuration: "12s" }}>
+            {/* Main illustration styled like in the reference image */}
+            <div className="relative">
               <img 
-                src="/lovable-uploads/d0928468-1adc-4b4f-a8ac-e11f7bb91a21.png" 
-                alt="Lemon mail illustration" 
-                className="w-full max-w-md mx-auto"
+                src="/lovable-uploads/bb970efb-46fa-4f36-9872-3ea0835166c1.png" 
+                alt="Feature showcase" 
+                className="w-full max-w-md mx-auto relative z-20"
+              />
+              
+              {/* Floating elements around the main image */}
+              <FloatingElement 
+                src="/lovable-uploads/c663818e-7422-42ba-b924-1fe838368f51.png" 
+                alt="Lemon character" 
+                className="z-30 hidden lg:block"
+                style={{ bottom: '10%', right: '0%', transform: 'rotate(5deg)' }}
+              />
+              
+              <FloatingElement 
+                src="/lovable-uploads/9bbe414c-63c7-4d3e-9f5e-4de2bc50a0ac.png" 
+                alt="Lemon with envelopes" 
+                className="z-30 hidden lg:block"
+                style={{ top: '10%', left: '-10%', transform: 'rotate(-5deg)' }}
+              />
+              
+              <FloatingElement 
+                src="/lovable-uploads/d8505e94-e8fd-4d33-8e1c-e41ebf065b35.png" 
+                alt="Cloud" 
+                className="w-20 opacity-40 z-10 hidden lg:block"
+                style={{ bottom: '30%', left: '10%' }}
               />
             </div>
-            
-            {/* Floating elements around main illustration */}
-            <FloatingElement 
-              src="/lovable-uploads/c663818e-7422-42ba-b924-1fe838368f51.png" 
-              alt="Lemon character" 
-              className="w-20 md:w-24"
-              style={{ bottom: '0%', right: '5%' }}
-            />
-            
-            <FloatingElement 
-              src="/lovable-uploads/9bbe414c-63c7-4d3e-9f5e-4de2bc50a0ac.png" 
-              alt="Lemon with envelopes" 
-              className="w-24 md:w-28"
-              style={{ top: '10%', left: '0%' }}
-            />
-            
-            <FloatingElement 
-              src="/lovable-uploads/d8505e94-e8fd-4d33-8e1c-e41ebf065b35.png" 
-              alt="Cloud" 
-              className="w-32 opacity-40"
-              style={{ bottom: '30%', left: '10%' }}
-            />
           </div>
           
           <div className="lg:w-1/2 space-y-6">
