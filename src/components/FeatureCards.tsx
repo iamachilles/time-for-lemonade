@@ -8,38 +8,19 @@ interface FeaturePoint {
   color?: string;
 }
 
-// Feature card component
-const FeatureCard = ({ 
-  title, 
-  description, 
-  color = "bg-purple-200" 
-}: { 
-  title: string; 
-  description: string;
-  color?: string;
-}) => {
-  return (
-    <div className={`${color} px-5 py-3 rounded-xl shadow-md max-w-[200px] transform rotate-${Math.floor(Math.random() * 6) - 3}`}>
-      <p className="text-gray-800 font-bold text-sm">{title}</p>
-      <p className="text-xs text-gray-700">{description}</p>
-    </div>
-  );
-};
-
-// Floating feature component
 const FloatingFeature = ({ 
   imageSrc, 
   title, 
   description, 
-  style = {},
+  style,
   color = "bg-purple-200"
-}: FeaturePoint & { style?: React.CSSProperties }) => {
+}: FeaturePoint & { style: React.CSSProperties, color?: string }) => {
   const [isVisible, setIsVisible] = useState(false);
   
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsVisible(true);
-    }, Math.random() * 800);
+    }, Math.random() * 1000);
     
     return () => clearTimeout(timer);
   }, []);
@@ -49,13 +30,15 @@ const FloatingFeature = ({
       className={`absolute transition-opacity duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`} 
       style={style}
     >
-      <div className="animate-float" style={{ animationDuration: `${7 + Math.random() * 4}s` }}>
-        <img src={imageSrc} alt={title} className="w-auto h-auto max-h-16" />
+      <div className="animate-float" style={{animationDuration: `${7 + Math.random() * 4}s`}}>
+        <img src={imageSrc} alt={title} className="w-auto h-auto max-h-28" />
       </div>
-      
       {title && description && (
-        <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2">
-          <FeatureCard title={title} description={description} color={color} />
+        <div className={`absolute ${Math.random() > 0.5 ? 'top-full' : 'bottom-full'} left-1/2 transform -translate-x-1/2 ${Math.random() > 0.5 ? 'mt-3' : 'mb-3'} text-center`}>
+          <div className={`${color} px-4 py-2 rounded-xl shadow-lg transform rotate-${Math.floor(Math.random() * 6) - 3} max-w-[180px]`}>
+            <p className="text-purple-900 font-bold text-sm">{title}</p>
+            <p className="text-xs text-gray-700">{description}</p>
+          </div>
         </div>
       )}
     </div>
@@ -114,29 +97,19 @@ const FeatureCards = () => {
     }
   ];
 
-  // Generate better positions for the floating illustrations
+  // Generate random positions for the floating illustrations
   const generatePositions = () => {
-    // Define quadrants to ensure better distribution
-    const quadrants = [
-      { xMin: 10, xMax: 30, yMin: 10, yMax: 30 },
-      { xMin: 70, xMax: 90, yMin: 10, yMax: 30 },
-      { xMin: 10, xMax: 30, yMin: 70, yMax: 90 },
-      { xMin: 70, xMax: 90, yMin: 70, yMax: 90 },
-      { xMin: 40, xMax: 60, yMin: 20, yMax: 40 },
-      { xMin: 20, xMax: 40, yMin: 40, yMax: 60 },
-      { xMin: 60, xMax: 80, yMin: 40, yMax: 60 },
-      { xMin: 40, xMax: 60, yMin: 60, yMax: 80 },
-    ];
-    
-    return features.map((feature, index) => {
-      const quadrant = quadrants[index % quadrants.length];
-      const top = Math.floor(Math.random() * (quadrant.yMax - quadrant.yMin)) + quadrant.yMin;
-      const left = Math.floor(Math.random() * (quadrant.xMax - quadrant.xMin)) + quadrant.xMin;
-      const rotate = Math.floor(Math.random() * 10) - 5; // slight rotation
+    return features.map(() => {
+      // Create more varied positions throughout the container
+      const top = Math.floor(Math.random() * 80) + 5; // 5%-85%
+      const left = Math.floor(Math.random() * 80) + 5; // 5%-85%
+      const zIndex = Math.floor(Math.random() * 10);
+      const rotate = Math.floor(Math.random() * 30) - 15; // -15deg to 15deg
       
       return { 
         top: `${top}%`, 
         left: `${left}%`, 
+        zIndex, 
         transform: `rotate(${rotate}deg)` 
       };
     });
@@ -145,7 +118,7 @@ const FeatureCards = () => {
   const positions = generatePositions();
 
   return (
-    <section className="py-16 relative" id="smart-features">
+    <section className="py-16 relative">
       <div className="container px-4 sm:px-6 lg:px-8 mx-auto">
         <div className="text-center max-w-3xl mx-auto mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Smart features for a smart inbox</h2>
@@ -154,17 +127,9 @@ const FeatureCards = () => {
           </p>
         </div>
         
-        <div className="relative w-full h-[500px] mx-auto max-w-4xl mt-8">
-          <div className="glass-card w-full h-full rounded-xl z-10"></div>
+        <div className="relative w-full h-[600px] mx-auto max-w-5xl mt-8">
+          <div className="glass-card w-full h-full rounded-xl"></div>
           
-          {/* Use the reference image as background */}
-          <img 
-            src="/lovable-uploads/f6a8c1ba-2678-48ba-9c5e-087cfe05aedf.png" 
-            alt="Feature background" 
-            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full object-cover rounded-xl opacity-20 z-0"
-          />
-          
-          {/* Floating feature elements */}
           {features.map((feature, index) => (
             <FloatingFeature
               key={index}
@@ -172,6 +137,11 @@ const FeatureCards = () => {
               style={positions[index]}
             />
           ))}
+          
+          {/* New decorative elements */}
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-lemon-300 rounded-full blur-3xl opacity-40"></div>
+          <div className="absolute bottom-20 right-20 w-40 h-40 bg-lime-300 rounded-full blur-3xl opacity-30"></div>
+          <div className="absolute top-20 left-20 w-36 h-36 bg-purple-300 rounded-full blur-3xl opacity-30"></div>
         </div>
       </div>
     </section>
