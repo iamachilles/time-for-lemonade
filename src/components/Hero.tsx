@@ -1,4 +1,3 @@
-
 import { Sun } from "lucide-react";
 
 const Hero = () => {
@@ -8,9 +7,9 @@ const Hero = () => {
       <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
         <div className="relative w-full h-full">
           <img 
-            src="/lovable-uploads/67a5155b-0b65-454a-b306-59cae1f46d38.png" 
+            src="/lovable-uploads/2f91b7b3-684e-4a99-83e5-4fbac924113a.png" 
             alt="Lemon slice background"
-            className="absolute left-1/2 top-[60%] -translate-x-1/2 -translate-y-1/2 w-[140%] max-w-none opacity-[0.15]"
+            className="absolute left-1/2 top-[60%] -translate-x-1/2 -translate-y-1/2 w-[140%] max-w-none opacity-[0.3]"
           />
         </div>
       </div>
