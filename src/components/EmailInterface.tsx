@@ -88,10 +88,10 @@ const EmailInterface = () => {
           textColor="text-purple-900"
         />
         
-        {/* Use the screenshot image instead of the mockup */}
+        {/* Email interface screenshot */}
         <div className="relative max-w-5xl mx-auto rounded-lg overflow-hidden shadow-2xl">
           <img 
-            src="/lovable-uploads/1e79926d-4df6-4f1c-992b-613462adadd0.png" 
+            src="/lovable-uploads/d98d3613-2289-47da-a8f2-00e9c8debe72.png" 
             alt="Email interface screenshot" 
             className="w-full h-auto"
           />
