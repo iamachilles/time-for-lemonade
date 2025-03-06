@@ -8,13 +8,12 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="flex items-center gap-2">
             <img 
-              src="/lovable-uploads/0fe28731-5f51-4b87-9434-56fabbadd85a.png" 
+              src="/lovable-uploads/00f05e3a-06eb-4678-b295-743dbd46914f.png" 
               alt="Zest Logo" 
               className="w-8 h-auto"
             />
             <span className="font-display text-xl font-bold">
               <span className="text-lime-600">Zest</span>
-              <span> Mail</span>
             </span>
           </div>
           
@@ -31,7 +30,7 @@ const Footer = () => {
           </div>
           
           <p className="text-gray-500 text-sm mt-4 md:mt-0">
-            © {new Date().getFullYear()} Zest Mail. All rights reserved.
+            © {new Date().getFullYear()} Zest. All rights reserved.
           </p>
         </div>
       </div>
