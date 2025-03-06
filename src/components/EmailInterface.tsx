@@ -1,169 +1,335 @@
 
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
+import { Search, ArrowLeft, ArrowRight, Star, Trash, Mail, AlertCircle, FileText, Users } from "lucide-react";
 
-// Small floating illustration component
-const FloatingElement = ({ 
-  src, 
-  alt, 
-  className, 
-  style,
-  title,
-  description 
+// Feature callout component
+const FeatureCallout = ({ 
+  title, 
+  description,
+  position,
+  color = "bg-purple-600",
+  textColor = "text-white"
 }: { 
-  src: string; 
-  alt: string; 
-  className?: string;
-  style?: React.CSSProperties;
-  title?: string;
-  description?: string;
+  title: string; 
+  description: string;
+  position: string;
+  color?: string;
+  textColor?: string;
 }) => {
-  const [isVisible, setIsVisible] = useState(false);
-  
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsVisible(true);
-    }, Math.random() * 1000);
-    
-    return () => clearTimeout(timer);
-  }, []);
-  
-  const colors = ["bg-purple-200", "bg-lemon-200", "bg-lime-200", "bg-blue-200"];
-  const randomColor = colors[Math.floor(Math.random() * colors.length)];
-  
   return (
-    <div 
-      className={`absolute transition-opacity duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'} ${className || ''}`} 
-      style={style}
-    >
-      <div className="animate-float" style={{ animationDuration: `${7 + Math.random() * 5}s` }}>
-        <img 
-          src={src} 
-          alt={alt} 
-          className="w-auto h-auto"
-        />
+    <div className={`absolute ${position} max-w-[200px] z-30 shadow-lg rounded-lg p-4 ${color} ${textColor}`}>
+      <h3 className="font-bold text-lg mb-1">{title}</h3>
+      <p className="text-sm">{description}</p>
+    </div>
+  );
+};
+
+// Email row component for the mockup
+const EmailRow = ({ 
+  sender, 
+  subject, 
+  time, 
+  label,
+  isUnread = false,
+  labelColor = "bg-gray-200"
+}: { 
+  sender: string;
+  subject: string;
+  time: string;
+  label?: string;
+  isUnread?: boolean;
+  labelColor?: string;
+}) => {
+  return (
+    <div className={`flex items-center py-3 px-3 hover:bg-gray-100 cursor-pointer border-b border-gray-100 ${isUnread ? 'font-medium' : ''}`}>
+      <div className="flex-shrink-0 w-6 mr-3 text-gray-400">
+        <Mail size={16} />
+      </div>
+      <div className="flex-grow min-w-0">
+        <div className="flex items-center mb-1">
+          <span className="font-medium text-sm truncate">{sender}</span>
+          <span className="ml-auto text-xs text-gray-500">{time}</span>
+        </div>
+        <p className="text-sm text-gray-700 truncate">{subject}</p>
+      </div>
+      {label && (
+        <div className={`ml-3 px-2 py-1 text-xs rounded-md ${labelColor} text-gray-800`}>
+          {label}
+        </div>
+      )}
+    </div>
+  );
+};
+
+// Email detail component for the mockup
+const EmailDetail = () => {
+  return (
+    <div className="bg-white rounded-r-lg h-full">
+      <div className="border-b border-gray-200 p-4">
+        <div className="flex justify-between items-center mb-4">
+          <h2 className="text-xl font-bold">Exports Maquette SD</h2>
+          <div className="flex space-x-2 text-gray-500">
+            <ArrowLeft size={18} className="cursor-pointer" />
+            <ArrowRight size={18} className="cursor-pointer" />
+            <Star size={18} className="cursor-pointer" />
+            <Trash size={18} className="cursor-pointer" />
+          </div>
+        </div>
         
-        {title && description && (
-          <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-3 text-center">
-            <div className={`${randomColor} px-3 py-2 rounded-xl shadow-md max-w-[160px]`}>
-              <p className="text-purple-900 font-bold text-sm">{title}</p>
-              <p className="text-xs text-gray-700">{description}</p>
+        <div className="flex items-center">
+          <div className="h-10 w-10 bg-green-500 rounded-full flex items-center justify-center text-white mr-3">
+            C
+          </div>
+          <div className="flex-grow">
+            <div className="flex items-center text-sm">
+              <span className="font-medium">Clio Gavagni</span>
+              <span className="mx-1">•</span>
+              <span className="text-gray-500">cliogavagni@gmail.com</span>
+            </div>
+            <div className="text-xs text-gray-500">
+              to Erwan BOUVET, Léna Nicolai • Escalenta
             </div>
           </div>
-        )}
+          <div className="text-xs text-gray-500">Mar 4, 2023, 4:11 PM</div>
+        </div>
+      </div>
+      
+      <div className="p-6 text-sm">
+        <p className="mb-4">Hello Erwan,</p>
+        <p className="mb-4">Voici mes exports pour la maquette.</p>
+        <p className="mb-4 text-blue-500 underline">https://escalenta.fromsmash.com/zff_LrDaW-ct</p>
+        <p className="mb-4">Je te les ai numérotés pour que tu puisses les empiler dans le bon ordre.</p>
+        <p className="mb-4">Dis-moi si tout est pour toi.</p>
+        <p className="mb-4">À bientôt,</p>
+        <p>Clio</p>
+      </div>
+      
+      <div className="border-t border-gray-200 p-4 bg-gray-50">
+        <div className="flex space-x-2">
+          <Button className="bg-blue-600 text-white text-xs flex items-center gap-1 py-1 h-auto">
+            <Mail size={14} /> 
+            Reply
+          </Button>
+          <Button variant="outline" className="text-xs flex items-center gap-1 py-1 h-auto">
+            More actions
+          </Button>
+        </div>
       </div>
     </div>
   );
 };
 
 const EmailInterface = () => {
-  const features = [
-    {
-      title: "AI powered labels",
-      description: "to sort your emails",
-      image: "/lovable-uploads/3d197393-1bd7-4eba-87ac-cbc53a7772af.png"
-    },
-    {
-      title: "Simplified unsubscribe",
-      description: "in one click",
-      image: "/lovable-uploads/1e79926d-4df6-4f1c-992b-613462adadd0.png"
-    },
-    {
-      title: "File preview",
-      description: "right in your inbox",
-      image: "/lovable-uploads/c88fa2b6-a30b-4dce-bb73-150e0cd66eef.png"
-    },
-    {
-      title: "Use your email",
-      description: "or create a Zest one",
-      image: "/lovable-uploads/16cfe136-b61d-449c-97fb-b4774135de2c.png"
-    },
-  ];
-
   return (
-    <section className="py-16 bg-white/40 backdrop-blur-sm relative">
-      <div className="container px-4 sm:px-6 lg:px-8 mx-auto">
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Clean interface, smart AI</h2>
+    <section className="py-16 relative bg-gradient-to-b from-lemon-50 to-yellow-50">
+      <div className="container relative max-w-6xl mx-auto px-4">
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Work on your emails, not in them</h2>
           <p className="text-xl text-gray-600">
-            Enjoy a beautiful, distraction-free email experience powered by AI
+            Experience how Zest makes email seamless and enjoyable with powerful AI features
           </p>
         </div>
         
-        <div className="relative max-w-5xl mx-auto">
-          {/* Email interface image */}
-          <div className="rounded-xl overflow-hidden shadow-2xl border border-gray-200 relative z-20">
-            <img 
-              src="/lovable-uploads/21d4804a-bc38-4368-b6ec-44bfcdc91dbb.png" 
-              alt="Zest Email Interface" 
-              className="w-full h-auto" 
-            />
+        {/* Feature callouts */}
+        <FeatureCallout 
+          title="AI powered labels" 
+          description="to instinctively sort your mails and files"
+          position="top-[20%] left-0 -translate-x-1/2 lg:translate-x-0"
+          color="bg-purple-600"
+        />
+        
+        <FeatureCallout 
+          title="Built in drive" 
+          description="for your attachments - no more back and forth!"
+          position="top-[35%] left-0 -translate-x-1/2 lg:translate-x-0"
+          color="bg-purple-200/80"
+          textColor="text-purple-900"
+        />
+        
+        <FeatureCallout 
+          title="Simplified unsubscribe" 
+          description="to spam"
+          position="bottom-[30%] left-0 -translate-x-1/2 lg:translate-x-0"
+          color="bg-purple-600"
+        />
+        
+        <FeatureCallout 
+          title="Use your own email adress" 
+          description="or create your Zest email"
+          position="top-[20%] right-0 translate-x-1/2 lg:translate-x-0"
+          color="bg-purple-200/80"
+          textColor="text-purple-900"
+        />
+        
+        <FeatureCallout 
+          title="Instinctive shortcuts" 
+          description="to navigate, answer, sort, send in no time"
+          position="top-[45%] right-0 translate-x-1/2 lg:translate-x-0"
+          color="bg-purple-600"
+        />
+        
+        <FeatureCallout 
+          title="AI agent" 
+          description="to write, answer, correct with the touch of a key"
+          position="bottom-[35%] right-0 translate-x-1/2 lg:translate-x-0"
+          color="bg-purple-200/80"
+          textColor="text-purple-900"
+        />
+        
+        <FeatureCallout 
+          title="File preview, summary and edit" 
+          description="directly in your mail"
+          position="bottom-[15%] right-0 translate-x-1/2 lg:translate-x-0"
+          color="bg-purple-200/80"
+          textColor="text-purple-900"
+        />
+        
+        {/* Email interface mockup */}
+        <div className="relative max-w-5xl mx-auto rounded-lg overflow-hidden shadow-2xl border border-gray-200 bg-white">
+          {/* Top navigation */}
+          <div className="bg-white border-b border-gray-200 flex items-center justify-between p-2 px-4">
+            <div className="flex items-center">
+              <div className="w-6 h-6 bg-red-500 rounded-md flex items-center justify-center text-white mr-2">
+                Z
+              </div>
+              <div className="relative mx-2">
+                <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-gray-400">
+                  <Search size={16} />
+                </div>
+                <input 
+                  type="text" 
+                  className="py-1.5 px-4 pl-10 text-sm border border-gray-200 rounded-md w-72 focus:outline-none focus:ring-1 focus:ring-purple-500"
+                  placeholder="Search in inbox"
+                />
+              </div>
+            </div>
+            
+            <div className="flex space-x-6 text-sm">
+              <span className="font-medium text-blue-500">All (19)</span>
+              <span>Personal (6)</span>
+              <span>Newsletters</span>
+              <span>Security</span>
+              <span>Meetings (2)</span>
+              <span>Invoices</span>
+              <span>Outreach</span>
+              <span>Appels d'offre</span>
+              <span>Saint-Denis (2)</span>
+            </div>
           </div>
           
-          {/* Background glow effects */}
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[70%] h-[70%] bg-purple-300 rounded-full blur-3xl opacity-10 -z-10"></div>
-          <div className="absolute top-1/3 left-1/4 w-[40%] h-[40%] bg-lime-300 rounded-full blur-3xl opacity-10 -z-10"></div>
+          <div className="flex h-[450px]">
+            {/* Left sidebar with emails list */}
+            <div className="w-2/5 border-r border-gray-200 overflow-y-auto bg-gray-50">
+              <EmailRow 
+                sender="Clio Gavagni" 
+                subject="Exports for maquette shared." 
+                time="4:11 PM"
+                label="Personal"
+                isUnread={true}
+              />
+              
+              <EmailRow 
+                sender="dvaenv@dvaenv.com" 
+                subject="Inquiry about 3D database for Frēks." 
+                time="2:36 PM" 
+                label="Personal"
+              />
+              
+              <EmailRow 
+                sender="Stéphane Levy" 
+                subject="Comprend le travail de Céleste." 
+                time="2:20 PM" 
+                label="Personal"
+              />
+              
+              <EmailRow 
+                sender="Smash" 
+                subject="Fichier envoyé via Smash." 
+                time="12:15 PM" 
+                label="Newsletters"
+                labelColor="bg-blue-100"
+              />
+              
+              <EmailRow 
+                sender="Stéphane Levy" 
+                subject="# Propose une vidéoconférence pour le film." 
+                time="11:30 AM" 
+                label="Développement"
+                labelColor="bg-green-100"
+              />
+              
+              <EmailRow 
+                sender="dvaenv@dvaenv.com" 
+                subject="Confirmation de réception du dossier." 
+                time="10:30 AM" 
+                label="Personal"
+              />
+              
+              <EmailRow 
+                sender="Schafer Julie" 
+                subject="Clic retaillé, touch désactivé." 
+                time="10:04 AM" 
+                label="Saint-Denis"
+                labelColor="bg-orange-100"
+              />
+              
+              <EmailRow 
+                sender="Ponctuation Monumentale" 
+                subject="Léna received documents, will review soon." 
+                time="10:00 AM" 
+                label="Appels d'offre"
+                labelColor="bg-teal-100"
+              />
+              
+              <EmailRow 
+                sender="Schafer Julie" 
+                subject="# Fiche remplie envoyée à Léna." 
+                time="9:56 AM" 
+                label="Saint-Denis"
+                labelColor="bg-orange-100"
+              />
+              
+              <EmailRow 
+                sender="Mélanie Gerin" 
+                subject="Disponible mardi pour discuter ensemble." 
+                time="8:37 AM" 
+                label="Personal"
+              />
+              
+              <EmailRow 
+                sender="Smash" 
+                subject="Fichier envoyé via Smash." 
+                time="Mar 1" 
+                label="Newsletters"
+                labelColor="bg-blue-100"
+              />
+            </div>
+            
+            {/* Right panel with email details */}
+            <div className="w-3/5">
+              <EmailDetail />
+            </div>
+          </div>
           
-          {/* Floating feature illustrations */}
-          <FloatingElement 
-            src="/lovable-uploads/0fe28731-5f51-4b87-9434-56fabbadd85a.png" 
-            alt="Lemon with mail" 
-            className="w-24 md:w-28 z-10"
-            style={{ top: '-15%', left: '15%' }}
-            title="Smart sorting"
-            description="Automatically organizes your inbox"
-          />
-          
-          <FloatingElement 
-            src="/lovable-uploads/61d3f307-5955-41d1-a889-25b98e7957c2.png" 
-            alt="Lemon superhero" 
-            className="w-28 md:w-32 z-10"
-            style={{ bottom: '-10%', right: '15%' }}
-            title="AI assistant"
-            description="Your email superhero"
-          />
-          
-          <FloatingElement 
-            src="/lovable-uploads/d0928468-1adc-4b4f-a8ac-e11f7bb91a21.png" 
-            alt="Lemon character" 
-            className="w-20 md:w-24 z-10"
-            style={{ bottom: '20%', left: '-5%' }}
-            title="Attachment handling"
-            description="Everything in one place"
-          />
-          
-          <FloatingElement 
-            src="/lovable-uploads/c663818e-7422-42ba-b924-1fe838368f51.png" 
-            alt="Lemon character" 
-            className="w-20 md:w-24 z-10"
-            style={{ top: '20%', right: '-5%' }}
-            title="Inbox zen"
-            description="Calm your email chaos"
-          />
+          {/* Bottom pagination */}
+          <div className="border-t border-gray-200 p-2 text-xs flex justify-between items-center bg-gray-50">
+            <div className="text-gray-500">0 - 25 of 386</div>
+            <div className="flex items-center space-x-1 text-gray-500">
+              <button className="p-1 hover:bg-gray-200 rounded"><ArrowLeft size={16} /></button>
+              <button className="p-1 hover:bg-gray-200 rounded"><ArrowRight size={16} /></button>
+            </div>
+          </div>
         </div>
         
-        <div className="relative mt-16 text-center">
-          <Button className="primary-button text-lg">
-            Get Started for Free
-          </Button>
-          
-          <div className="absolute -right-10 bottom-0 animate-float md:block hidden" style={{ animationDelay: "0.3s" }}>
-            <img 
-              src="/lovable-uploads/d8505e94-e8fd-4d33-8e1c-e41ebf065b35.png" 
-              alt="Decorative cloud" 
-              className="w-24 h-auto opacity-50"
-            />
-          </div>
+        {/* Decorative elements */}
+        <div className="absolute bottom-0 left-1/4 -mb-8">
+          <img 
+            src="/lovable-uploads/b612ef9b-8745-45de-8507-4d47e5825102.png" 
+            alt="Decorative leaf" 
+            className="w-32 h-auto opacity-90 transform -rotate-15"
+          />
         </div>
-      </div>
-      
-      {/* Additional floating clouds in background */}
-      <div className="absolute bottom-10 right-10 animate-float opacity-40 hidden md:block" style={{ animationDelay: "0.5s" }}>
-        <img 
-          src="/lovable-uploads/d8505e94-e8fd-4d33-8e1c-e41ebf065b35.png" 
-          alt="Decorative cloud" 
-          className="w-32 h-auto"
-        />
       </div>
     </section>
   );
