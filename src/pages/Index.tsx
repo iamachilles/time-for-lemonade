@@ -16,8 +16,8 @@ const Index = () => {
         <Hero />
         <EmailInterface />
         <FeatureCards />
-        <RelaxingLemons />
         <Features />
+        <RelaxingLemons />
         <CTASection />
       </main>
       <Footer />
