@@ -1,8 +1,11 @@
+
+/* Reset any root container padding that might affect spacing */
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 100%;
+  text-align: left;
 }
 
 .logo {
