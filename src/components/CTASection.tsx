@@ -44,7 +44,7 @@ const CTASection = () => {
               <p className="text-xl text-gray-700 mb-8 animate-slide-up" style={{ animationDelay: "0.1s" }}>
                 Join thousands who've reclaimed their time and peace of mind with our AI-powered email client.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up" style={{ animationDelay: "0.2s" }}>
+              <div className="flex justify-center animate-slide-up" style={{ animationDelay: "0.2s" }}>
                 <a 
                   href="https://app.zest.email/" 
                   target="_blank" 
@@ -53,14 +53,6 @@ const CTASection = () => {
                 >
                   <Sun className="h-5 w-5" />
                   TRY ZEST
-                </a>
-                <a 
-                  href="https://app.zest.email/" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-lg inline-flex items-center justify-center h-12 px-8 py-2 border-2 border-gray-800 bg-white/50 hover:bg-white text-gray-800 font-medium rounded-xl"
-                >
-                  See Pricing
                 </a>
               </div>
               <p className="text-gray-500 mt-6 animate-slide-up" style={{ animationDelay: "0.3s" }}>
