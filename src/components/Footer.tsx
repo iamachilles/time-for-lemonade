@@ -5,7 +5,7 @@ const Footer = () => {
     <footer className="py-10 bg-white/40 backdrop-blur-sm">
       <div className="container px-4 mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-          <div className="flex items-center gap-2 w-full md:w-1/3 justify-start">
+          <div className="flex items-center gap-2 w-full md:w-1/3 justify-center md:justify-start">
             <img
               src="/lovable-uploads/00f05e3a-06eb-4678-b295-743dbd46914f.png"
               alt="Zest Logo"
@@ -39,8 +39,8 @@ const Footer = () => {
             </Link>
           </div>
 
-          <div className="w-full md:w-1/3 flex justify-end">
-            <p className="text-gray-500 text-sm mt-4 md:mt-0">
+          <div className="w-full md:w-1/3 flex justify-center md:justify-end">
+            <p className="text-gray-500 text-sm mt-4 md:mt-0 text-center md:text-left">
               © {new Date().getFullYear()} Zest. All rights reserved.
             </p>
           </div>
