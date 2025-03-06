@@ -8,9 +8,9 @@ const Hero = () => {
       <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
         <div className="relative w-full h-full">
           <img 
-            src="/lovable-uploads/d6cc80de-5f26-49d0-a56c-69da1df4677a.png" 
+            src="/lovable-uploads/7ad25c85-9a3b-48f8-bd55-f74b133b8d84.png" 
             alt="Lemon slice background"
-            className="absolute left-1/2 top-2/3 -translate-x-1/2 -translate-y-1/2 w-[140%] max-w-none opacity-[0.15]"
+            className="absolute left-1/2 top-[60%] -translate-x-1/2 -translate-y-1/2 w-[140%] max-w-none opacity-[0.15]"
           />
         </div>
       </div>
