@@ -55,11 +55,6 @@
 
   body {
     @apply bg-lemon-50 text-foreground font-sans;
-    background-image: 
-      radial-gradient(rgba(248, 231, 28, 0.1) 2px, transparent 2px),
-      radial-gradient(rgba(248, 231, 28, 0.1) 2px, transparent 2px);
-    background-size: 40px 40px;
-    background-position: 0 0, 20px 20px;
   }
 
   h1, h2, h3, h4, h5, h6 {
