@@ -28,8 +28,8 @@ const Hero = () => {
             {/* Main hero image positioned to overflow on mobile and desktop */}
             <div className="relative w-full h-auto overflow-visible">
               <img 
-                src="/lovable-uploads/6493f1cc-33c7-48a8-b1a1-61db5e091b25.png" 
-                alt="Lemon characters with mailbox" 
+                src="/lovable-uploads/2043e556-41e3-48ec-8bfa-6651d506a706.png" 
+                alt="Lemons playing with mailbox" 
                 className="w-auto h-auto max-w-none lg:max-w-[140%] absolute -right-16 lg:-right-32 top-0"
               />
             </div>
