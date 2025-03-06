@@ -1,6 +1,5 @@
 
-import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { Sun } from "lucide-react";
 import { useEffect, useState } from "react";
 
 const CTASection = () => {
@@ -50,15 +49,16 @@ const CTASection = () => {
                   href="https://app.zest.email/" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="primary-button flex items-center gap-2 text-lg px-8 bg-primary text-primary-foreground hover:bg-primary/90 h-10 py-2 inline-flex justify-center rounded-md"
+                  className="bg-lemon-400 hover:bg-lemon-500 text-black font-bold py-4 px-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 flex items-center gap-3 text-xl tracking-wide justify-center"
                 >
-                  Try Free for 14 Days <ArrowRight size={18} />
+                  <Sun className="h-5 w-5" />
+                  TRY ZEST
                 </a>
                 <a 
                   href="https://app.zest.email/" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="text-lg inline-flex items-center justify-center h-10 px-4 py-2 border border-input bg-background hover:bg-accent hover:text-accent-foreground rounded-md"
+                  className="text-lg inline-flex items-center justify-center h-12 px-8 py-2 border-2 border-gray-800 bg-white/50 hover:bg-white text-gray-800 font-medium rounded-xl"
                 >
                   See Pricing
                 </a>

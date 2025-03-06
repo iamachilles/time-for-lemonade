@@ -1,5 +1,5 @@
 
-import { Sparkle } from "lucide-react";
+import { Sun } from "lucide-react";
 
 const Hero = () => {
   return (
@@ -22,10 +22,10 @@ const Hero = () => {
                 href="https://app.zest.email/" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="bg-gradient-to-r from-purple-500 to-purple-600 text-white font-medium py-4 px-8 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 flex items-center gap-2 text-lg inline-flex justify-center"
+                className="bg-lemon-400 hover:bg-lemon-500 text-black font-bold py-4 px-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 flex items-center gap-3 text-xl tracking-wide"
               >
-                <Sparkle className="h-5 w-5" />
-                Try Free
+                <Sun className="h-5 w-5" />
+                TRY ZEST
               </a>
             </div>
           </div>
