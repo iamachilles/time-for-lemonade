@@ -17,7 +17,7 @@ const Footer = () => {
             </span>
           </div>
           
-          <div className="flex gap-8 mt-4 md:mt-0">
+          <div className="flex flex-wrap justify-center gap-6 md:gap-8 mt-4 md:mt-0">
             <a href="https://www.zest.email/changelog" className="text-gray-600 hover:text-black transition-colors" target="_blank" rel="noopener noreferrer">
               Changelog
             </a>

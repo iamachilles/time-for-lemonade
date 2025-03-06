@@ -14,7 +14,7 @@ const FAQItem = ({ question, answer, icon, isOpen, toggleOpen }: FAQItemProps) =
   return (
     <div className="glass-card border-white/30 overflow-hidden transition-all duration-300">
       <div 
-        className="flex items-start gap-4 p-6 cursor-pointer"
+        className="flex items-start gap-3 md:gap-4 p-4 md:p-6 cursor-pointer"
         onClick={toggleOpen}
       >
         <div className="text-lime-600 mt-1 flex-shrink-0">
@@ -22,13 +22,14 @@ const FAQItem = ({ question, answer, icon, isOpen, toggleOpen }: FAQItemProps) =
         </div>
         <div className="flex-grow">
           <div className="flex justify-between items-center">
-            <h3 className="text-xl font-semibold text-gray-800">{question}</h3>
+            <h3 className="text-lg md:text-xl font-semibold text-gray-800 pr-2">{question}</h3>
             <ChevronDown 
-              className={`text-gray-500 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} 
+              className={`text-gray-500 transition-transform duration-300 flex-shrink-0 ${isOpen ? 'rotate-180' : ''}`} 
+              size={20}
             />
           </div>
           
-          <div className={`mt-4 text-gray-600 text-lg transition-all duration-300 overflow-hidden ${
+          <div className={`mt-4 text-gray-600 text-base md:text-lg transition-all duration-300 overflow-hidden ${
             isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
           }`}>
             {answer}
@@ -59,7 +60,7 @@ const FAQSection = () => {
           </p>
         </>
       ),
-      icon: <Mail className="h-6 w-6" />
+      icon: <Mail className="h-5 w-5 md:h-6 md:w-6" />
     },
     {
       question: "Can I connect my existing email?",
@@ -73,7 +74,7 @@ const FAQSection = () => {
           </p>
         </>
       ),
-      icon: <Layers className="h-6 w-6" />
+      icon: <Layers className="h-5 w-5 md:h-6 md:w-6" />
     },
     {
       question: "Can I still use my own email address?",
@@ -87,7 +88,7 @@ const FAQSection = () => {
           </p>
         </>
       ),
-      icon: <Mail className="h-6 w-6" />
+      icon: <Mail className="h-5 w-5 md:h-6 md:w-6" />
     },
     {
       question: "Is my data secure?",
@@ -104,25 +105,25 @@ const FAQSection = () => {
           </p>
         </>
       ),
-      icon: <Shield className="h-6 w-6" />
+      icon: <Shield className="h-5 w-5 md:h-6 md:w-6" />
     }
   ];
 
   return (
-    <section className="py-16 bg-lemon-50 relative">
+    <section className="py-12 md:py-16 bg-lemon-50 relative">
       <div className="container px-4 sm:px-6 lg:px-8 mx-auto">
         <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-12">
+          <div className="text-center mb-8 md:mb-12">
             <div className="flex justify-center mb-4">
-              <HelpCircle className="h-12 w-12 text-purple-500" />
+              <HelpCircle className="h-10 w-10 md:h-12 md:w-12 text-purple-500" />
             </div>
-            <h2 className="text-4xl font-bold mb-4">Frequently Asked Questions</h2>
-            <p className="text-xl text-gray-600">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Frequently Asked Questions</h2>
+            <p className="text-lg md:text-xl text-gray-600">
               Everything you need to know about Zest and how it transforms your email experience
             </p>
           </div>
           
-          <div className="space-y-4">
+          <div className="space-y-3 md:space-y-4">
             {faqs.map((faq, index) => (
               <FAQItem
                 key={index}
