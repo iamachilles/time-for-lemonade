@@ -18,13 +18,6 @@ const Navbar = () => {
             </Link>
           </div>
           
-          <nav className="hidden md:flex items-center space-x-8">
-            <Link to="/" className="font-medium text-gray-600 hover:text-black transition-colors">Features</Link>
-            <Link to="/" className="font-medium text-gray-600 hover:text-black transition-colors">Pricing</Link>
-            <Link to="/" className="font-medium text-gray-600 hover:text-black transition-colors">About</Link>
-            <Link to="/" className="font-medium text-gray-600 hover:text-black transition-colors">Blog</Link>
-          </nav>
-          
           <div className="flex items-center gap-4">
             <Button variant="outline" className="hidden sm:inline-flex">Log in</Button>
             <Button className="bg-lime-500 hover:bg-lime-600 text-white">Try Free</Button>
