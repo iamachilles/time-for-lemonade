@@ -46,10 +46,22 @@ const CTASection = () => {
                 Join thousands who've reclaimed their time and peace of mind with our AI-powered email client.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up" style={{ animationDelay: "0.2s" }}>
-                <Button className="primary-button flex items-center gap-2 text-lg px-8">
+                <a 
+                  href="https://app.zest.email/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="primary-button flex items-center gap-2 text-lg px-8 bg-primary text-primary-foreground hover:bg-primary/90 h-10 py-2 inline-flex justify-center rounded-md"
+                >
                   Try Free for 14 Days <ArrowRight size={18} />
-                </Button>
-                <Button variant="outline" className="text-lg">See Pricing</Button>
+                </a>
+                <a 
+                  href="https://app.zest.email/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-lg inline-flex items-center justify-center h-10 px-4 py-2 border border-input bg-background hover:bg-accent hover:text-accent-foreground rounded-md"
+                >
+                  See Pricing
+                </a>
               </div>
               <p className="text-gray-500 mt-6 animate-slide-up" style={{ animationDelay: "0.3s" }}>
                 No credit card required. Cancel anytime.

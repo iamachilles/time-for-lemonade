@@ -19,9 +19,14 @@ const Hero = () => {
               We believe email should enhance your life, not consume it. Our AI gives you more time to enjoy life.
             </p>
             <div className="flex flex-wrap gap-4 pt-2">
-              <Button className="bg-yellow-400 hover:bg-yellow-500 text-black font-medium py-3 px-6 rounded-full shadow-md transition-all duration-300 flex items-center gap-2 text-lg">
+              <a 
+                href="https://app.zest.email/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="bg-yellow-400 hover:bg-yellow-500 text-black font-medium py-3 px-6 rounded-full shadow-md transition-all duration-300 flex items-center gap-2 text-lg inline-flex justify-center"
+              >
                 Try Free <ArrowRight size={18} />
-              </Button>
+              </a>
               <Button variant="outline" className="text-lg">Learn More</Button>
             </div>
           </div>

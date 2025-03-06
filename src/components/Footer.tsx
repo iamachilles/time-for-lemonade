@@ -18,15 +18,15 @@ const Footer = () => {
           </div>
           
           <div className="flex gap-8 mt-4 md:mt-0">
-            <Link to="/pricing" className="text-gray-600 hover:text-black transition-colors">
+            <a href="https://app.zest.email/" className="text-gray-600 hover:text-black transition-colors" target="_blank" rel="noopener noreferrer">
               Pricing
-            </Link>
-            <Link to="/terms" className="text-gray-600 hover:text-black transition-colors">
+            </a>
+            <a href="https://www.zest.email/terms-of-service" className="text-gray-600 hover:text-black transition-colors" target="_blank" rel="noopener noreferrer">
               Terms
-            </Link>
-            <Link to="/privacy" className="text-gray-600 hover:text-black transition-colors">
+            </a>
+            <a href="https://www.zest.email/privacy-policy" className="text-gray-600 hover:text-black transition-colors" target="_blank" rel="noopener noreferrer">
               Privacy
-            </Link>
+            </a>
           </div>
           
           <p className="text-gray-500 text-sm mt-4 md:mt-0">
