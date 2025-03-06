@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import EmailInterface from "@/components/EmailInterface";
 import Divider from "@/components/Divider";
+import FAQSection from "@/components/FAQSection";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
 
@@ -14,6 +15,7 @@ const Index = () => {
         <Hero />
         <EmailInterface />
         <Divider />
+        <FAQSection />
         <CTASection />
       </main>
       <Footer />
