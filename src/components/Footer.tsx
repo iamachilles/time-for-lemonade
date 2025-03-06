@@ -21,6 +21,9 @@ const Footer = () => {
             <a href="https://app.zest.email/" className="text-gray-600 hover:text-black transition-colors" target="_blank" rel="noopener noreferrer">
               Pricing
             </a>
+            <a href="https://www.zest.email/changelog" className="text-gray-600 hover:text-black transition-colors" target="_blank" rel="noopener noreferrer">
+              Changelog
+            </a>
             <a href="https://www.zest.email/terms-of-service" className="text-gray-600 hover:text-black transition-colors" target="_blank" rel="noopener noreferrer">
               Terms
             </a>
