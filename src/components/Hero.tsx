@@ -49,8 +49,8 @@ const Hero = () => {
               <span className="text-purple-500">with Zest</span>
             </h1>
             <p className="text-lg md:text-xl text-gray-600 max-w-lg mx-auto">
-              We believe email should enhance your life, not consume it. Our AI
-              gives you more time to enjoy life.
+              Less emails, more life. Zest ensures your inbox doesn’t own your
+              soul.
             </p>
             <div className="flex justify-center pt-4">
               <a
